@@ -1,0 +1,20 @@
+package modelo
+
+import modelo.Conta
+
+class ContaCorrente(
+    titular: String,
+    numero: Int
+) : Conta(
+    titular = titular,
+    numero = numero
+) {
+    override fun saca(valor: Double) {
+        val valorComTaxa = valor + 0.1  //taxa de saque
+        if(this.saldo >= valorComTaxa){
+            this.saldo -= valorComTaxa
+        }
+    }
+}
+
+// nesse exemplo usamos herança e sobrescrita.
